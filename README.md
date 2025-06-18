@@ -2,6 +2,12 @@
 
 Provides [Mainsms](https://mainsms.ru) integration for Symfony Notifier.
 
+Installation
+---------
+```sh
+composer require pf2pr/mainsms-notifier
+```
+
 ## DSN Example
 
 ```env
