@@ -2,31 +2,52 @@
 
 Provides [Mainsms](https://mainsms.ru) integration for Symfony Notifier.
 
-Installation
----------
-```sh
+## Installation
+
+```bash
 composer require pf2pr/mainsms-notifier
 ```
 
-## DSN Example
+## Configuration
+
+### Register the transport factory
+
+```yaml
+# config/services.yaml
+Pf2Pr\Notifier\Bridge\Mainsms\MainsmsTransportFactory:
+    tags: ['texter.transport_factory']
+```
+
+### Configure the transport
+
+```yaml
+# config/packages/notifier.yaml
+framework:
+    notifier:
+        texter_transports:
+            mainsms: '%env(MAINSMS_DSN)%'
+```
+
+Then define the DSN in your `.env` file.
+
+## DSN example
 
 ```env
 MAINSMS_DSN=mainsms://APIKEY@default?project=PROJECT&sender=SENDER&strategy=STRATEGY&timeout=TIMEOUT&test=TEST
 ```
 
-### Parameters
+### DSN parameters
 
-- **APIKEY** — your Mainsms API key (**required**)
-- **PROJECT** — project name (**required**)
-- **SENDER** — sender name (optional)
-- **STRATEGY** — message delivery strategy: (optional)
-    - omitted or `-1`: SMS only
-    - `1`: Viber only
-    - `2`: Viber or SMS
-- **TIMEOUT** — HTTP timeout in seconds (optional)
-- **TEST** — enable test mode (`true` or `false`, default: `false`) (optional)
+- **APIKEY** — Your Mainsms API key (**required**)
+- **project** — Project name (**required**)
+- **sender** — Sender name (optional)
+- **strategy** — Message delivery strategy (optional):
+  - omitted or `-1`: SMS only
+  - `1`: Viber only
+  - `2`: Viber or SMS
+- **timeout** — HTTP request timeout (numeric, optional)
+- **test** — Enable test mode (`true` or `false`, default: `false`) (optional)
 
 ## Resources
 
 - [Mainsms API Documentation](https://mainsms.ru/home/api)
-
