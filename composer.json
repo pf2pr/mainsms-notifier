@@ -1,0 +1,42 @@
+{
+  "name": "pf2pr/mainsms-notifier",
+  "type": "symfony-notifier-bridge",
+  "description": "Symfony Mainsms Notifier Bridge",
+  "keywords": [
+    "sms",
+    "mainsms",
+    "notifier"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "pf2pr",
+      "email": "pf2prr@gmail.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.1",
+    "symfony/clock": "^6.2|^7.0",
+    "symfony/http-client": "^5.4|^6.0|^7.0",
+    "symfony/notifier": "^6.2.7|^7.0"
+  },
+  "require-dev": {
+    "symfony/webhook": "^6.4|^7.0",
+    "phpunit/phpunit": "^10.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Pf2Pr\\Notifier\\Bridge\\Mainsms\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Pf2Pr\\Notifier\\Bridge\\Mainsms\\Tests\\": "Tests/"
+    }
+  },
+  "minimum-stability": "stable",
+  "prefer-stable": true,
+  "config": {
+    "sort-packages": true
+  }
+}
